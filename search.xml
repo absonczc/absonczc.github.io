@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Change Theme</title>
+    <url>/2019/12/27/changeTheme/</url>
+    <content><![CDATA[<h2 id="博客主题皮肤"><a href="#博客主题皮肤" class="headerlink" title="博客主题皮肤"></a>博客主题皮肤</h2><p>&emsp; 我第一次新建的blog,主题是 <strong>landscape</strong>。当时觉得这个主题还好。足够日常需求了啦。但是自从我看了那些 炫酷的，高大上， 科技感十足的blog，我也就想着去换这个比较成熟稳重的主题了。(毕竟我也想让你们进来我的blog，觉得眼前一亮的感觉嘛)</p>
+<h2 id="第一步-寻找符合自己的主题"><a href="#第一步-寻找符合自己的主题" class="headerlink" title="第一步:寻找符合自己的主题"></a>第一步:寻找符合自己的主题</h2><p>&emsp; 当然啦，<strong>Hexo</strong> 也有这个 <a href="https://hexo.io/themes/" target="_blank" rel="noopener" title="主题的版块">主题的版块</a>，可以任意随你挑选的。</p>
+<p><img src="/2019/12/27/changeTheme/theme.png" alt="主题板块"></p>
+<h2 id="选好主题，进入作者的github，进行安装！"><a href="#选好主题，进入作者的github，进行安装！" class="headerlink" title="选好主题，进入作者的github，进行安装！"></a>选好主题，进入作者的github，进行安装！</h2><p>&emsp; 基本上每个作者,下面的介绍都会跟你说怎么下载，安装的了。这里举个我的例子吧。</p>
+<p><strong>安装</strong></p>
+<pre><code>$ git clone https://github.com/Shen-Yu/hexo-theme-ayer.git themes/ayer</code></pre><p><strong>修改配置</strong><br>需要修改根目录的<code>_config.yml</code>文件里的</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: ayer   &#x2F;&#x2F;拉到最后，修改他的值。你的主题是什么就是什么值</span><br></pre></td></tr></table></figure>
+
+<h2 id="搞定了。不过你需要详细阅读作者给出的文档。耐心点。"><a href="#搞定了。不过你需要详细阅读作者给出的文档。耐心点。" class="headerlink" title="搞定了。不过你需要详细阅读作者给出的文档。耐心点。"></a>搞定了。不过你需要详细阅读作者给出的文档。耐心点。</h2>]]></content>
+  </entry>
+  <entry>
     <title>初次使用Hexo搭建blog。</title>
     <url>/2019/12/26/hello-world/</url>
     <content><![CDATA[<h2 id="为什么会接触到-Hexo-？"><a href="#为什么会接触到-Hexo-？" class="headerlink" title="为什么会接触到 Hexo ？"></a>为什么会接触到 Hexo ？</h2><p>  &emsp;这个是我在项目里面遇到需要做的SEO搜索引擎优化,一位大佬介绍给我看的一个东西，虽然好像这些东西表面看起来与需求不相关，但我觉得其实也是学习成长的一部分嘛。</p>
@@ -11,8 +24,8 @@
 <li>可以随意绑定自己的域名，默认域名也不会失效，会自动跳转到新的域名</li>
 <li>等等</li>
 </ul>
-<h2 id="Hexo-安装"><a href="#Hexo-安装" class="headerlink" title="Hexo 安装"></a>Hexo 安装</h2><p>  &emsp;其实不怎么想说安装流程，因为文档写的一清二楚了，但是还是照顾一下金鱼记忆的我。</p>
-<a id="more"></a>
+<h2 id="Hexo-安装"><a href="#Hexo-安装" class="headerlink" title="Hexo 安装"></a>Hexo 安装</h2><a id="more"></a>
+<p>  &emsp;其实不怎么想说安装流程，因为文档写的一清二楚了，但是还是照顾一下金鱼记忆的我。</p>
 <h3 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提:"></a>安装前提:</h3><p>  &emsp;1.<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">Node.js</a> (Node.js 版本需不低于 8.10，建议使用 Node.js 10.0 及以上版本) </p>
 <p>  &emsp;//node -v 查看版本号</p>
 <p>  &emsp;2.Git(这个不用说了吧,按照文档走就好了。)</p>
