@@ -115,14 +115,31 @@
 【3】 &nbsp;或&#160;  //半角之半角 -->
 <h4 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h4><p>&emsp;1.新建一个github账号(有的话直接忽略)</p>
 <p>&emsp;2.github上新建一个仓库，仓库名字:username.github.io。<br>&emsp;&emsp;例如我的账号名是 abson,那么仓库名就是 abson.github.io<br>&emsp;&emsp;因为以后你可以直接访问 xxx.github.io 就可以看到你的blog 了</p>
-<p>&emsp;3.SSH key </p>
+<p>&emsp;3.生成SSH key<br>&emsp;&emsp;3.1 回到您的git bash 上</p>
+<pre><code>$ git config --global user.name &quot;yourname&quot;
+$ git config --global user.email &quot;youremail&quot;</code></pre><p>&emsp; 输入 用户名 和 邮箱<br>&emsp; 可以由下面的两个命令查看你是否输入错误</p>
+<pre><code>$ git config user.name
+$ git config user.email</code></pre><p>&emsp; 然后 创建 ssh key </p>
+<pre><code>$ ssh-keygen -t rsa -C &quot;youremail&quot;</code></pre><p>&emsp; 就会生成SSH key ，你需要找到 <strong>.ssh</strong> 文件夹，找到<strong>id_rsa.pub</strong>文件，把里面的内容复制，然后到github 设置 添加 sshkey 密钥，title 随便写就好了</p>
+<p>&emsp; 如果你实在不知道这个文件在哪，你可以 git bash 输入命令,查看到大概位置</p>
+<pre><code>$   ~/. ssh</code></pre><h2 id="将hexo-部署到-github"><a href="#将hexo-部署到-github" class="headerlink" title="将hexo 部署到 github"></a>将hexo 部署到 github</h2><p>&emsp; 打开文件 配置文件 <strong>_config.yml</strong><br>修改配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;absonczc&#x2F;absonczc.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 
+<p>&emsp;2.安装deploy-git，这样才能部署到github上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;然后【清理】-【生成】-【部署】</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean    &#x2F;&#x2F;清理之前生成的，可忽略该步骤</span><br><span class="line">hexo generate &#x2F;&#x2F;生成静态文章，可以简写成 g</span><br><span class="line">hexo deploy   &#x2F;&#x2F;部署文章 可以简写成 d</span><br></pre></td></tr></table></figure>
+<p><strong>注意了 执行到最后部署可能需要让你输入账号密码</strong></p>
+<p><img src="/2019/12/26/hello-world/github_login.png" alt="github登陆"></p>
+<h2 id="设置个人域名-（等待我的域名好了再上传）"><a href="#设置个人域名-（等待我的域名好了再上传）" class="headerlink" title="设置个人域名 （等待我的域名好了再上传）"></a>设置个人域名 （等待我的域名好了再上传）</h2><hr>
+<h1 id="基本上-搭建一个-自己blog-就已经完成，如果完成了以上步骤，那么就去浏览下-你的blog吧-网址是-xxx-github-io"><a href="#基本上-搭建一个-自己blog-就已经完成，如果完成了以上步骤，那么就去浏览下-你的blog吧-网址是-xxx-github-io" class="headerlink" title="基本上 搭建一个 自己blog 就已经完成，如果完成了以上步骤，那么就去浏览下 你的blog吧 网址是:xxx.github.io"></a>基本上 搭建一个 自己blog 就已经完成，如果完成了以上步骤，那么就去浏览下 你的blog吧 网址是:xxx.github.io</h1>
       
       <!-- 打赏 -->
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/26/hello-world/" data-id="ck4nv6j5j00000oug34qfdecl"
+      <a data-url="http://yoursite.com/2019/12/26/hello-world/" data-id="ck4nwvxmq0000qsug1wrlgpk4"
         class="article-share-link">分享</a>
       
     </footer>
