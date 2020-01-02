@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>微信小程序切换测试/生产环境</title>
+    <url>/2020/01/02/minipro-config/</url>
+    <content><![CDATA[<p>之前工作的步骤都是,如果需要修改Bug或者完成需求的话，需要 新建分支，然后 做一个 pull request 的操作。</p>
+<p>然后因为修改Bug/完成需求 都是在开发环境下进行,所以 我们的大佬考虑到如果真的需要上传审核的话,怕是把开发环境上传成了项目的正式版。</p>
+<p>因此,就要做一个确保 GIT 上 master上的 URL 和 APPID 皆为生产环境，因此有了今天的文章。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li><p>可以把 <strong>project.config.json</strong> 的 <strong>appid</strong> 设为生产环境</p>
+</li>
+<li><p>然后把 <strong>.gitignore</strong> 文件上添加该文件，便可以每一次分支上传的时候都会忽略该文件。（即保证<strong>master</strong>上<strong>appid</strong>为生产环境）</p>
+</li>
+<li><p>新建个切换 URL 的JS 。默认为 生产环境。-&gt; 给个console.log，如果为开发环境，则报错</p>
+</li>
+</ol>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h2 id="project-config-json"><a href="#project-config-json" class="headerlink" title="project.config.json"></a>project.config.json</h2><ol>
+<li><p>修改  <strong>appid</strong> 为 生产环境的 <strong>appid</strong></p>
+</li>
+<li><p>修改 【setting】-  <strong>urlCheck:true</strong></p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;setting&quot;:&#123;</span><br><span class="line">  &quot;urlCheck&quot;:true    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个是确保我们开发或者运维人员使用工具的时候都是需要 “校验合法域名”。让上传版本的人员能注意到小程序所给的错误。</p>
+<h2 id="config-js，来切换环境"><a href="#config-js，来切换环境" class="headerlink" title="config.js，来切换环境"></a>config.js，来切换环境</h2><ol>
+<li>上代码</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let env &#x3D; &quot;prod&quot;</span><br><span class="line">if(env &#x3D;&#x3D; &quot;dev&quot;)&#123;</span><br><span class="line">  &#x2F;&#x2F; 这里是加一个console.error  在打开的时候告诉 开发&#x2F;运维人员 现在的环境</span><br><span class="line">  console.error(&quot;Environment:dev\n 当前环境为测试环境,如需要上传版本\n 请前往config.js,修改变量env &#x3D;&#39;pro&#39;&quot;)</span><br><span class="line">&#125;</span><br><span class="line">let config &#x3D; &#123;</span><br><span class="line">  url:config_url(env)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function config_url(env)&#123;</span><br><span class="line">  let Url &#x3D; &#39;&#39;</span><br><span class="line">  if(env &#x3D;&#x3D; &quot;dev&quot;)&#123;</span><br><span class="line">    Url&#x3D;&quot;https:&#x2F;&#x2F;unicard.ceshi.bingoapp.cn&quot;</span><br><span class="line">  &#125;else if(env &#x3D;&#x3D; &quot;prod&quot;)&#123;</span><br><span class="line">    Url&#x3D;&quot;https:&#x2F;&#x2F;unicard.bingoapp.cn&quot;  </span><br><span class="line">  &#125;</span><br><span class="line">  return Url</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module.exports &#x3D; config;</span><br></pre></td></tr></table></figure>
+
+<h2 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h2><ol>
+<li>这里也只是单纯的引入与赋值</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var config &#x3D; require(&#39;.&#x2F;config.js&#39;)</span><br><span class="line">const URL &#x3D; config.url</span><br><span class="line"></span><br><span class="line">App(&#123;</span><br><span class="line">  globalData:&#123;</span><br><span class="line">    url: URL</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h2><ol>
+<li>这里其实争了挺久，究竟把不把 我们的 Config.js 添加进去。因为属于配置文件去掉了，以后可能需要配置的东西就需要重复步骤了。所以这里就看需要，需求加进去，加了进去 就能确保每次都是进来包括上传都是生产环境[只要不修改config.js]。这里我就没加了，因为这边大佬说可能以后需要添加的东西还有，所以就没把他进去了（-.- 其实还有什么可以加嘛.基本的东西都在了..还能加什么嘛…..）。</li>
+</ol>
+<p>.gitignore 文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">node_modules</span><br><span class="line">project.config.json</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>这里可能第一次修改了，但是他不生效阿。这里有解决办法。</p>
+<p>   $ git rm -r –cached  .<br>   $ git add .<br>   $ git commit -m “demo”<br>   $ git pull<br>   $ git push </p>
+</li>
+</ol>
+<p>参考文章:<a href="https://www.cnblogs.com/rainbowk/p/10932322.html" target="_blank" rel="noopener" title="参考文章">https://www.cnblogs.com/rainbowk/p/10932322.html</a></p>
+<p>参考文章:<a href=""参考文章"">https://www.cnblogs.com/kevingrace/p/5690241.html</a></p>
+]]></content>
+      <tags>
+        <tag>微信小程序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Change Theme</title>
     <url>/2019/12/27/changeTheme/</url>
     <content><![CDATA[<h2 id="博客主题皮肤"><a href="#博客主题皮肤" class="headerlink" title="博客主题皮肤"></a>博客主题皮肤</h2><p>&emsp; 我第一次新建的blog,主题是 <strong>landscape</strong>。当时觉得这个主题还好。足够日常需求了啦。但是自从我看了那些 炫酷的，高大上， 科技感十足的blog，我也就想着去换这个比较成熟稳重的主题了。(毕竟我也想让你们进来我的blog，觉得眼前一亮的感觉嘛)</p>
