@@ -14,6 +14,8 @@
 <li><p>新建个切换 URL 的JS 。默认为 生产环境。-&gt; 给个console.log，如果为开发环境，则报错</p>
 </li>
 </ol>
+<a id="more"></a>
+
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h2 id="project-config-json"><a href="#project-config-json" class="headerlink" title="project.config.json"></a>project.config.json</h2><ol>
 <li><p>修改  <strong>appid</strong> 为 生产环境的 <strong>appid</strong></p>
 </li>

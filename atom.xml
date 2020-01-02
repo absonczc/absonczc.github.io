@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-01-02T10:00:22.667Z</updated>
+  <updated>2020-01-02T10:06:55.739Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,18 +21,21 @@
     <link href="http://yoursite.com/2020/01/02/minipro-config/"/>
     <id>http://yoursite.com/2020/01/02/minipro-config/</id>
     <published>2020-01-02T09:10:55.000Z</published>
-    <updated>2020-01-02T10:00:22.667Z</updated>
+    <updated>2020-01-02T10:06:55.739Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;之前工作的步骤都是,如果需要修改Bug或者完成需求的话，需要 新建分支，然后 做一个 pull request 的操作。&lt;/p&gt;
-&lt;p&gt;然后因为修改Bug/完成需求 都是在开发环境下进行,所以
-        
-      
+      &lt;p&gt;之前工作的步骤都是,如果需要修改Bug或者完成需求的话，需要 新建分支，然后 做一个 pull request 的操作。&lt;/p&gt;
+&lt;p&gt;然后因为修改Bug/完成需求 都是在开发环境下进行,所以 我们的大佬考虑到如果真的需要上传审核的话,怕是把开发环境上传成了项目的正式版。&lt;/p&gt;
+&lt;p&gt;因此,就要做一个确保 GIT 上 master上的 URL 和 APPID 皆为生产环境，因此有了今天的文章。&lt;/p&gt;
+&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;可以把 &lt;strong&gt;project.config.json&lt;/strong&gt; 的 &lt;strong&gt;appid&lt;/strong&gt; 设为生产环境&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;然后把 &lt;strong&gt;.gitignore&lt;/strong&gt; 文件上添加该文件，便可以每一次分支上传的时候都会忽略该文件。（即保证&lt;strong&gt;master&lt;/strong&gt;上&lt;strong&gt;appid&lt;/strong&gt;为生产环境）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;新建个切换 URL 的JS 。默认为 生产环境。-&amp;gt; 给个console.log，如果为开发环境，则报错&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     
