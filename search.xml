@@ -5,7 +5,7 @@
     <url>/2019/12/27/changeTheme/</url>
     <content><![CDATA[<h2 id="博客主题皮肤"><a href="#博客主题皮肤" class="headerlink" title="博客主题皮肤"></a>博客主题皮肤</h2><p>&emsp; 我第一次新建的blog,主题是 <strong>landscape</strong>。当时觉得这个主题还好。足够日常需求了啦。但是自从我看了那些 炫酷的，高大上， 科技感十足的blog，我也就想着去换这个比较成熟稳重的主题了。(毕竟我也想让你们进来我的blog，觉得眼前一亮的感觉嘛)</p>
 <h2 id="第一步-寻找符合自己的主题"><a href="#第一步-寻找符合自己的主题" class="headerlink" title="第一步:寻找符合自己的主题"></a>第一步:寻找符合自己的主题</h2><p>&emsp; 当然啦，<strong>Hexo</strong> 也有这个 <a href="https://hexo.io/themes/" target="_blank" rel="noopener" title="主题的版块">主题的版块</a>，可以任意随你挑选的。</p>
-<p><img src="/2019/12/27/changeTheme/theme.png" alt="主题板块"></p>
+<p><img src="theme.png" alt="主题板块"></p>
 <a id="more"></a>
 
 <h2 id="选好主题，进入作者的github，进行安装！"><a href="#选好主题，进入作者的github，进行安装！" class="headerlink" title="选好主题，进入作者的github，进行安装！"></a>选好主题，进入作者的github，进行安装！</h2><p>&emsp; 基本上每个作者,下面的介绍都会跟你说怎么下载，安装的了。这里举个我的例子吧。</p>
@@ -49,7 +49,7 @@ $ git config user.email</code></pre><p>&emsp; 然后 创建 ssh key </p>
 <p>&emsp;然后【清理】-【生成】-【部署】</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean    &#x2F;&#x2F;清理之前生成的，可忽略该步骤</span><br><span class="line">hexo generate &#x2F;&#x2F;生成静态文章，可以简写成 g</span><br><span class="line">hexo deploy   &#x2F;&#x2F;部署文章 可以简写成 d</span><br></pre></td></tr></table></figure>
 <p><strong>注意了 执行到最后部署可能需要让你输入账号密码</strong></p>
-<p><img src="/2019/12/26/hello-world/github_login.png" alt="github登陆"></p>
+<p><img src="./hello-world/github_login.png" alt="github登陆"></p>
 <!-- https://blog.csdn.net/Fitz1318/article/details/86548129 -->
 
 
