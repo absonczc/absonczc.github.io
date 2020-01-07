@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="Aabson" />
+   
+  <meta name="description" content="雅伯森的web note" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    多语言网站SEO优化 |  Aabson Web note
+  </title>
+  
+  <link rel="shortcut icon" href="/favi.ico" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+<script src="/js/pace.min.js"></script>
+
+
+  
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Aabson Web note" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-seo-Setting" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  多语言网站SEO优化
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/01/07/seo-Setting/" class="article-date">
+  <time datetime="2020-01-07T09:14:45.000Z" itemprop="datePublished">2020-01-07</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>最近在做一个多语言的网页项目,因为之前没怎么接触过SEO的问题,所以呢在一开始搞的时候,转换语言的时候我都是用js来去切换内容的.但是看了SEO的优化和搜索引擎的相关东西之后,我发现了<strong>与PC spider一样，百度通过一个叫Baiduspider2.0的程序抓取移动互联网上的网页，经过处理后建入移动索引中。当前Baiduspider只能读懂文本内容，flash、图片等非文本内容暂时不能很好处理，放置在flash、图片中的文字，百度只能简单识别。建议使用文本而不是flash、图片、Javascript等来显示重要的内容或链接，搜索引擎暂时无法识别Flash、图片、复杂Javascript中的内容；同时仅存在于flash、Javascript中包含链接指向的网页，百度移动搜索同样可能无法收录。不要在希望搜索引擎可读的地方使用Ajax技术，比如标题、导航、内容等等。</strong></p>
+<p>所以等于之前的我都是白做了.因此我看了两三天的文章和一些如华为官网和苹果官网等等网站,后面才决定把网站的重新构建一下。</p>
+<p>其实这里我可以用<strong>Nuxt.js</strong>去做一下,但是想到第一个是因为我这个是用bootstarp 框架去做的，如果我要用<strong>nuxt.js</strong>去重构呢,那必须得要重新布局重新适配,这个时间对于我来说其实还好,哈哈但是公司等不了,所以也就放弃了。</p>
+<a id="more"></a>
+<h1 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h1><h2 id="1-设置robots-txt文件"><a href="#1-设置robots-txt文件" class="headerlink" title="1.设置robots.txt文件"></a>1.设置robots.txt文件</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"robots"</span> <span class="attr">content</span>=<span class="string">"all,follow"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>标签意思</strong> 允许 索引本页 和 搜索引擎继续通过此网页的链接索引搜索其它的网页<br><br><br>反则</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"robots"</span> <span class="attr">content</span>=<span class="string">"noindex,nofollow"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Noindex：搜索引擎不索引此网页（可以抓取，但不出现在搜索结果中）。<br>Nofollow： 搜索引擎不继续通过此网页的链接索引搜索其它的网页。<br><br></p>
+<h2 id="2-url的命名"><a href="#2-url的命名" class="headerlink" title="2.url的命名"></a>2.url的命名</h2><p>顾名思义,把网页的文件名改的必须得有意思或者是意义明确<br><br></p>
+<h2 id="3-搜索引擎可识别"><a href="#3-搜索引擎可识别" class="headerlink" title="3.搜索引擎可识别"></a>3.搜索引擎可识别</h2><p>这里写的东西比较多了。因为如果你的可选语言越多，写的东西越多。</p>
+<p>这里也是利用了google为多语言版本网站所准备的一个命令。官方所说的适用于此命令的网站包含但不限于以下几种情况。</p>
+<p>&emsp;&emsp; ⚪您<strong>只翻译了网页的模板</strong>（例如导航和页脚内容），并以单一语言显示主要内容。这种情况通常出现在以用户生成的内容（如论坛帖子）为主体的网页中。</p>
+<p>&emsp;&emsp; ⚪您的网页<strong>以单一语言显示了大致相同的内容</strong>，但这些内容却存在细微的区域差异。例如，您可能将英语内容定位为面向美国、英国和爱尔兰的用户。</p>
+<p>&emsp;&emsp; ⚪您的网站内容<strong>经过完全翻译</strong>。例如，您的所有网页都拥有德语和英语两个版本。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"canonical"</span> <span class="attr">href</span>=<span class="string">"现在访问的网站"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"alternate"</span>  <span class="attr">href</span>=<span class="string">"英文网站的url"</span>  <span class="attr">hreflang</span>=<span class="string">"en-US"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>譬如 你在<strong>中文网站</strong>写了以上的代码，那么第一行的代码的href就是你该网页的地址，英文的网站也需要写一套这样的代码只不过herf 就得变一下了。</p>
+<p><strong>hreflang</strong>属性值用于确定备选网址的语言（以 ISO 6391-1 格式表示）和区域（以 ISO 3166-1 Alpha 2 格式表示且可选）</p>
+<p>&emsp;&emsp; ⚪de：德语内容，不限区域</p>
+<p>&emsp;&emsp; ⚪en-GB：英语内容，面向英国用户</p>
+<p>&emsp;&emsp; ⚪de-ES：德语内容，面向西班牙用户</p>
+<p>&emsp;&emsp; ⚪zh-CH：中国大陆 / en-HH: 香港 / zh-TW: 台湾</p>
+<p>最后给出这个信息的google官方地址：<a href="http://support.google.com/webmasters/bin/answer.py?hl=zh-Hans&answer=189077" target="_blank" rel="noopener">http://support.google.com/webmasters/bin/answer.py?hl=zh-Hans&amp;answer=189077</a></p>
+<p>那么基本上多语言的网站的做法都是 二级目录 或者 二级域名 两方面有利有弊。可自行选择。</p>
+<p>参考文章：<a href="https://blog.csdn.net/esoogle/article/details/50457738" target="_blank" rel="noopener">https://blog.csdn.net/esoogle/article/details/50457738</a><br><br><br><br></p>
+<h2 id="4-每个页面不一样的description"><a href="#4-每个页面不一样的description" class="headerlink" title="4.每个页面不一样的description"></a>4.每个页面不一样的description</h2><h2 id="5-标题明确"><a href="#5-标题明确" class="headerlink" title="5.标题明确"></a>5.标题明确</h2><h2 id="6-生成sitemap"><a href="#6-生成sitemap" class="headerlink" title="6.生成sitemap"></a>6.生成sitemap</h2><h2 id="7-涵盖主旨的anchor"><a href="#7-涵盖主旨的anchor" class="headerlink" title="7.涵盖主旨的anchor"></a>7.涵盖主旨的anchor</h2>
+      
+      <!-- 打赏 -->
+      
+        <div id="reward-btn">
+          打赏
+        </div>
+        
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/07/seo-Setting/" data-id="ck53ns4p30000twug57lo8xsh"
+        class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SEO%E4%BC%98%E5%8C%96/" rel="tag">SEO优化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%9A%E8%AF%AD%E8%A8%80%E7%BD%91%E7%AB%99/" rel="tag">多语言网站</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/01/02/minipro-config/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">微信小程序切换测试/生产环境</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2015-2020
+        Aabson Cao
+      </li>
+      <li>
+        
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a> by shenyu
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <ul class="list-inline">
+  <li>PV:<span id="busuanzi_value_page_pv"></span></li>
+  <li>UV:<span id="busuanzi_value_site_uv"></span></li>
+</ul>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+    
+    <aside class="sidebar">
+      
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/gougou.svg" alt="Aabson Web note"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">目录</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯肥宅快乐水吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+  
+<script src="/js/tocbot.min.js"></script>
+
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: false
+  }
+</script>
+
+
+<script src="/js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  
+  
+  </div>
+</body>
+
+</html>
