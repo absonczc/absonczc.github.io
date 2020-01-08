@@ -30,8 +30,8 @@
 <p>参考文章：<a href="https://blog.csdn.net/esoogle/article/details/50457738" target="_blank" rel="noopener">https://blog.csdn.net/esoogle/article/details/50457738</a><br><br><br><br></p>
 <h2 id="4-每个页面不一样的description"><a href="#4-每个页面不一样的description" class="headerlink" title="4.每个页面不一样的description"></a>4.每个页面不一样的description</h2><h2 id="5-标题明确"><a href="#5-标题明确" class="headerlink" title="5.标题明确"></a>5.标题明确</h2><h2 id="6-生成sitemap"><a href="#6-生成sitemap" class="headerlink" title="6.生成sitemap"></a>6.生成sitemap</h2><h2 id="7-涵盖主旨的anchor"><a href="#7-涵盖主旨的anchor" class="headerlink" title="7.涵盖主旨的anchor"></a>7.涵盖主旨的anchor</h2>]]></content>
       <tags>
-        <tag>SEO优化</tag>
         <tag>多语言网站</tag>
+        <tag>SEO优化</tag>
       </tags>
   </entry>
   <entry>
@@ -81,7 +81,7 @@
 </li>
 </ol>
 <p>参考文章:<a href="https://www.cnblogs.com/rainbowk/p/10932322.html" target="_blank" rel="noopener" title="参考文章">https://www.cnblogs.com/rainbowk/p/10932322.html</a></p>
-<p>参考文章:<a href=""参考文章"">https://www.cnblogs.com/kevingrace/p/5690241.html</a></p>
+<p>参考文章:<a href 参考文章"">https://www.cnblogs.com/kevingrace/p/5690241.html</a></p>
 ]]></content>
       <tags>
         <tag>微信小程序</tag>
